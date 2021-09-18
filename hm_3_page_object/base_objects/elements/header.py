@@ -17,7 +17,7 @@ class Header(BaseElement):
     login_sign_in_button = ClickableElement("//li[@class='liOffcanvas']/a", 'login', By.XPATH)
     b2c_accelerator_logo = BaseElement("//li[@class='liOffcanvas']/a", 'main_logo', By.XPATH)
     search_field = Input("//input[@id='js-site-search-input']", 'search_field', By.XPATH)
-    search_button = ClickableElement("//button[@class='js_search_button']", 'search_button', By.XPATH)
+    search_button = ClickableElement("//button[@class='btn btn-link js_search_button']", 'search_button', By.XPATH)
     find_a_store_button = ClickableElement("div.nav-location > a", 'find_a_store_button', By.CSS_SELECTOR)
     order_tool_menu = ClickableElement(
         "//div[@class='yCmsComponent']//div[contains(@class, 'nav-order-tools js-nav-order-tools')]",
