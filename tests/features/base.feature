@@ -32,3 +32,30 @@ Feature: Home Page
         Examples:
         | firstname    | lastname | password   | password_confirmation |
         | 'name'       | 'sur'    | 'passw0rd' | 'passw0rd'            |
+
+    Scenario Outline: No results search item
+        Given User on main page
+        When Enter searching word
+        Then No results message are showed
+
+         Examples:
+        | word             |
+        | 'hghgh'          |
+
+
+    Scenario Outline: Success search item
+        Given User on main page
+        When Enter searching word
+        Then Results are showed
+
+         Examples:
+        | word             |
+        | 'helmet'          |
+
+
+    Scenario: Empty search item
+        Given User on main page
+        When Click search button
+        Then Nothing happens
+
+

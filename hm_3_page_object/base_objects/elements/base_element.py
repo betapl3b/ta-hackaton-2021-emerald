@@ -13,7 +13,7 @@ class BaseElement:
         self._parent = parent
         self._selector_type = by
         self._selector = value
-        self._element_timeout = 1
+        self._element_timeout = 5
 
     @property
     def element_description(self):
