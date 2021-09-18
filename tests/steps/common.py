@@ -1,8 +1,8 @@
-from pytest_bdd import given, when, then
+from pytest_bdd import given, then, when
 
-from hm_3_page_object.base_objects.pages.login_page import LoginPage
-from hm_3_page_object.base_objects.pages.card_page import CardPage
 from hm_3_page_object.base_objects.base_page import BasePage
+from hm_3_page_object.base_objects.pages.login_page import LoginPage
+from hm_3_page_object.base_objects.pages.store_finder_page import StoreFinderPage
 
 
 @given("User on main page")
@@ -13,6 +13,11 @@ def go_to_main_page():
 @given("User on login page")
 def go_to_login_page():
     LoginPage().open()
+
+
+@given("User on store finder page")
+def go_to_store_finder_page():
+    StoreFinderPage().open()
 
 
 @when("Cookie notification")
@@ -43,3 +48,33 @@ def login_unsuccess():
 @when("Click 'Logout' button")
 def click_logout():
     BasePage().logout_button.click()
+
+
+@when("'Find stores' button clicked")
+def click_find_stores_button():
+    StoreFinderPage().find_nearest_stores_button().click()
+
+
+@when("'Magnifier' button clicked")
+def click_magnifier_button():
+    StoreFinderPage().magnifier_button().click()
+
+
+@then("stores table is shown")
+def stores_table_is_shown():
+    assert StoreFinderPage().stores_list().is_displayed()
+
+
+@then("error is shown")
+def error_is_shown(error_text):
+    assert StoreFinderPage().error_message().value() == error_text
+
+
+@when("search input filled with a value")
+def fill_input(store_name):
+    StoreFinderPage().query_input = store_name
+
+
+@then("particular store is shown")
+def error_is_shown(store_name):
+    assert StoreFinderPage().stores_list[0].value == store_name
