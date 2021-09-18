@@ -1,21 +1,27 @@
 from pytest_bdd import given, when, then
 
 from hm_3_page_object.base_objects.pages.login_page import LoginPage
+from hm_3_page_object.base_objects.base_page import BasePage
 
 
-@given("Go to main page")
-def go_to_article(browser):
+@given("User on main page")
+def go_to_main_page(browser):
+    BasePage().open()
+
+
+@given("User on login page")
+def go_to_login_page(browser):
     LoginPage().open()
 
 
 @when("Cookie notification")
 def check_cookie_notif(browser):
-    assert LoginPage().cookie_notification.is_displayed()
+    assert BasePage().cookie_notification.is_displayed()
 
 
 @when("Close notification")
 def close_notification(browser):
-    LoginPage().cookie_close_button.click()
+    BasePage().cookie_close_button.click()
 
 
 @then("No notification")

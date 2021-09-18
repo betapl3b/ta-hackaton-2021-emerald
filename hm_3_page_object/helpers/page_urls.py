@@ -10,7 +10,8 @@ class UrlFactory:
 
     @classproperty
     def urls(cls):
-        return {'LoginPage': '/login.html',
+        return {'BasePage': '',
+                'LoginPage': '/login.html',
                 'DifferentElementsPage': '/different-elements.html'}
 
     @classmethod
