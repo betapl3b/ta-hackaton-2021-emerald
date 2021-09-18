@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 
 
 class BasePage:
-    header = Header(by=By.CLASS_NAME, value='m-l8', name='header')
+    header = Header(by=By.CLASS_NAME, value='js-mainHeader', name='header')
     sidebar = Sidebar(by=By.CLASS_NAME, value='sidebar-menu', name='Side bar')
     footer = Footer(by=By.XPATH, value='//footer', name='footer')
 
