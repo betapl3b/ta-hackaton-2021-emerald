@@ -1,15 +1,15 @@
 from hm_3_page_object.base_objects.base_page import BasePage
+from hm_3_page_object.base_objects.elements.base_element import BaseElement
 from hm_3_page_object.base_objects.elements.clickable_element import ClickableElement
 from hm_3_page_object.base_objects.elements.header import Header
 from selenium.webdriver.common.by import By
 
 
 class HomePage(BasePage):
-
     all_href_images = ClickableElement(by=By.XPATH, value="//a//img", name='clickable_images')
     the_biggest_banner = ClickableElement(by=By.XPATH, value="//img[@title='Start Your Season']",
                                           name='start you season')
-    show_now = ClickableElement(by=By.XPATH, value = "//img[@title='Save Big on Select Streetwear']",
+    show_now = ClickableElement(by=By.XPATH, value="//img[@title='Save Big on Select Streetwear']",
                                 name='Save Big on Select Streetwear')
 
     shop_women = ClickableElement(by=By.XPATH, value="//div[@class='simple-banner banner__component--responsive']//"
@@ -38,21 +38,17 @@ class HomePage(BasePage):
     new_products_prev = ClickableElement(by=By.XPATH, value="//div[contains(text(), \"What's New\")]/"
                                                             "following-sibling::div//div[@class='owl-prev']",
                                          name='next new product')
-    read_more = ClickableElement(by=By.XPATH, value="//img[@title='Free Shipping on All Orders This Weekend']")
+    read_more = ClickableElement(by=By.XPATH, value="//img[@title='Free Shipping on All Orders This Weekend']",
+                                 name='read_more')
 
-    thanks_tab = ClickableElement(by=By.XPATH, value="//div[@class='alert alert-info alert-dismissable getAccAlert']")
-    close_thanks_tub = ClickableElement(by=By.XPATH, value="//div[@class='alert alert-info alert-dismissable getAccAlert']"
-                                                           "/button")
-    bottom_banners = ClickableElement(by=By.XPATH, value = "//div[contains(@class, 'yCmsComponent col-xs-6 col-md-3')]",
+    thanks_tab = BaseElement(by=By.XPATH, value="//div[@class='alert alert-info alert-dismissable getAccAlert']",
+                             name='thanks_tab')
+    close_thanks_tab = ClickableElement(by=By.XPATH,
+                                        value="//div[@class='alert alert-info alert-dismissable getAccAlert']"
+                                              "/button", name='close_thanks_tab')
+    bottom_banners = ClickableElement(by=By.XPATH, value="//div[contains(@class, 'yCmsComponent col-xs-6 col-md-3')]",
                                       name='bottom bannrs')
-
-    header = Header()
 
     def search(self, word):
         self.header.search_field.send_keys(word)
         self.header.search_button.click()
-
-
-
-
-
