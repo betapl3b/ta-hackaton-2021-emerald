@@ -12,6 +12,10 @@ from selenium.webdriver.common.by import By
 class LoginPage(BasePage):
     wrong_credentials_alert = BaseElement(by=By.CSS_SELECTOR, value='div.alert.alert-danger.alert-dismissable',
                                           name='Wrong credentials alert')
+    cookie_notification = BaseElement(by=By.XPATH, value='//div[@id="js-cookie-notification"]',
+                                      name='Cookie notification')
+    cookie_close_button = ClickableElement(by=By.XPATH, value='//button[@class="js-cookie-notification-accept close"]',
+                                      name='Cookie close button')
     # Sign In block
     login_email = Input(by=By.ID, value='j_username', name='Input for Sign In email ')
     login_password = Input(by=By.ID, value='j_password', name='Input for Sign In Password ')
