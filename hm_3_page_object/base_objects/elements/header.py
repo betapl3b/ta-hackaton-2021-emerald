@@ -8,6 +8,10 @@ class Header(BaseElement):
     """
     Header class
     """
+    EXPAND_SIDEBAR_BUTTON = "//button[@class='btn js-toggle-sm-navigation']"
+
     navigation_bar = NavigationBar("//ul[contains(@class, 'nav__links--products js-offcanvas-links')]",
                                    name='navigation_bar', by=By.XPATH)
 
+    def expand_sidebar(self):
+        self._element.find_elements_by_xpath(self.EXPAND_SIDEBAR_BUTTON).click()
