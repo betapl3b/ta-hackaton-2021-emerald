@@ -11,14 +11,14 @@ class StoreFinderPage(BasePage):
 
     # Error message
     error_message = BaseElement(
-        by=By.XPATH,
-        value="//div[@class=js-storefinder-alert alert alert-danger alert-dismissable getAccAlert]",
+        by=By.CLASS_NAME,
+        value='js-storefinder-alert.alert.alert-danger.alert-dismissable.getAccAlert',
         name='Error message',
     )
 
     # Search input group
     query_input = Input(by=By.ID, value='storelocator-query', name='Query field')
-    magnifier_button = ClickableElement(by=By.CLASS_NAME, value='button.btn.btn-primary', name='Search button')
+    magnifier_button = ClickableElement(by=By.CLASS_NAME, value='btn.btn-primary', name='Search button')
     find_nearest_stores_button = ClickableElement(by=By.ID, value='findStoresNearMe', name='Find nearest stores button')
 
     # Search results group
