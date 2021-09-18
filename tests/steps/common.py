@@ -64,11 +64,13 @@ def click_magnifier_button():
 
 @then("stores table is shown")
 def stores_table_is_shown():
+    sleep(1)
     assert StoreFinderPage().stores_list.is_displayed()
 
 
 @then("error is shown")
 def error_is_shown(error_text):
+    sleep(1)
     assert StoreFinderPage().error_message.text == error_text
 
 
@@ -79,5 +81,6 @@ def fill_input(store_name):
 
 @then("particular store is shown")
 def error_is_shown(store_name):
+    sleep(1)
     rows = StoreFinderPage().stores_list.rows
     assert rows[0].split('\n')[0] == store_name
