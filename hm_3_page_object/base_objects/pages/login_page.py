@@ -1,4 +1,5 @@
 from hm_3_page_object.base_objects.base_page import BasePage
+from hm_3_page_object.base_objects.elements import base_element
 from hm_3_page_object.base_objects.elements.input import Input
 from hm_3_page_object.base_objects.elements.clickable_element import ClickableElement
 from hm_3_page_object.base_objects.elements.base_element import BaseElement
@@ -36,6 +37,7 @@ class LoginPage(BasePage):
                                name='Checkbox for sample agreement')
     register_button = ClickableElement(by=By.XPATH, value='//button[contains(text(), "Register")]',
                                        name='Register Button')
+    password_bar = BaseElement(by=By.ID, value='password_bar', name='password-bar')
 
     def login(self, email, password):
         self.login_email = email

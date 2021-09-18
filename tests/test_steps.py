@@ -10,6 +10,8 @@ def go_to_main_page(browser):
 
 
 @given("User on login page")
+@given("Main page is opened")
+@then("Main page is opened")
 def go_to_login_page(browser):
     LoginPage().open()
 
@@ -33,6 +35,8 @@ def no_notification(browser):
 def login(browser, login, password):
     LoginPage().login(login, password)
 
+
 @then("Login unsuccess")
 def login_unsuccess(browser):
-    assert LoginPage().wrong_credentials_alert.is_displayed() == True
+    assert LoginPage().wrong_credentials_alert.is_displayed() is True
+

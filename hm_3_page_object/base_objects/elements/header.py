@@ -1,6 +1,8 @@
 from selenium.webdriver.common.by import By
 
 from hm_3_page_object.base_objects.elements.base_element import BaseElement
+from hm_3_page_object.base_objects.elements.clickable_element import ClickableElement
+from hm_3_page_object.base_objects.elements.input import Input
 from hm_3_page_object.base_objects.elements.navigation_bar import NavigationBar
 
 
@@ -8,42 +10,23 @@ class Header(BaseElement):
     """
     Header class
     """
-    EXPAND_SIDEBAR_BUTTON = "//button[@class='btn js-toggle-sm-navigation']"
-    LOGIN_SIGN_IN_BUTTON = "//li[@class='liOffcanvas']/a"
-    B2C_ACCELERATOR_LOGO = "//main//a/img[@title='hybris Accelerator']"
-    SEARCH_FIELD = "//input[@id='js-site-search-input']"
-    SEARCH_BUTTON = "//button[@class='js_search_button']"
-    FIND_A_STORE_BUTTON = "div.nav-location > a"
-    ORDER_TOOL_MENU = "//div[@class='yCmsComponent']//div[contains(@class, 'nav-order-tools js-nav-order-tools')]"
-    QUICK_ORDER_BUTTON = "//a[@title='Quick Order']"
-    CART_IMPORT_ORDER_BUTTON = "//a[@title='Import Saved Cart']"
-
     navigation_bar = NavigationBar("//ul[contains(@class, 'nav__links--products js-offcanvas-links')]",
                                    name='navigation_bar', by=By.XPATH)
 
-    def expand_sidebar(self):
-        self._element.find_element_by_xpath(self.EXPAND_SIDEBAR_BUTTON).click()
-
-    def click_login_button(self):
-        self._element.find_element_by_xpath(self.LOGIN_SIGN_IN_BUTTON)
-
-    def click_b2c_accelerator_logo(self):
-        self._element.find_element_by_xpath(self.B2C_ACCELERATOR_LOGO).click()
-
-    def click_search_button(self):
-        self._element.find_element_by_xpath(self.SEARCH_BUTTON).click()
-
-    def fill_search_field(self, text):
-        self._element.find_element_element_by_xpath(self.SEARCH_FIELD).send_keys(text)
-
-    def click_find_a_store_button(self):
-        self._element.find_element_by_css_selector(self.FIND_A_STORE_BUTTON).click()
-
-    def expand_order_tools_menu(self):
-        self._element.find_element_by_xpath(self.ORDER_TOOL_MENU).click()
-
-    def click_quick_order(self):
-        self._element.find_element_by_xpath(self.QUICK_ORDER_BUTTON).click()
-
-    def click_import_saved_cart(self):
-        self._element.find_element_by_xpath(self.CART_IMPORT_ORDER_BUTTON).click()
+    sidebar_button = ClickableElement("//button[@class='btn js-toggle-sm-navigation']", 'sidebar_button', By.XPATH)
+    login_sign_in_button = ClickableElement("//li[@class='liOffcanvas']/a", 'login', By.XPATH)
+    b2c_accelerator_logo = BaseElement("//li[@class='liOffcanvas']/a", 'main_logo', By.XPATH)
+    search_field = Input("//input[@id='js-site-search-input']", 'search_field', By.XPATH)
+    search_button = ClickableElement("//button[@class='js_search_button']", 'search_button', By.XPATH)
+    find_a_store_button = ClickableElement("div.nav-location > a", 'find_a_store_button', By.CSS_SELECTOR)
+    order_tool_menu = ClickableElement(
+        "//div[@class='yCmsComponent']//div[contains(@class, 'nav-order-tools js-nav-order-tools')]",
+        'order_tool_menu',
+        By.XPATH
+    )
+    quick_order_button = ClickableElement("//a[@title='Quick Order']", 'quick_order_button', By.XPATH)
+    cart_import_order_button = ClickableElement("//a[@title='Import Saved Cart']", 'cart_import_order_button', By.XPATH)
+    welcome_banner = BaseElement("li.logged_in", 'welcome_banner', By.CSS_SELECTOR)
+    my_account_link = ClickableElement("li.yCmsComponent .myAccountLinksHeader", 'myacc', By.CSS_SELECTOR)
+    my_wishlists_link = ClickableElement('//a[@title="My wishlists"]', 'wishlists', By.XPATH)
+    sign_out_button = ClickableElement('.liOffcanvas a', 'sign_out_button', By.CSS_SELECTOR)
