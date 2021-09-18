@@ -33,6 +33,7 @@ def no_notification(browser):
 def login(browser, login, password):
     LoginPage().login(login, password)
 
+
 @then("Login unsuccess")
 def login_unsuccess(browser):
-    assert LoginPage().wrong_credentials_alert.is_displayed() == True
+    assert LoginPage().wrong_credentials_alert.is_displayed()
