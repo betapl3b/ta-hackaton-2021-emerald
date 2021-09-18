@@ -7,7 +7,6 @@ from selenium.webdriver.common.by import By
 
 class HomePage(BasePage):
 
-    all_href_images = ClickableElement(by=By.XPATH, value="//a//img", name='clickable_images')
     the_biggest_banner = ClickableElement(by=By.XPATH, value="//img[@title='Start Your Season']",
                                           name='start you season')
     show_now = ClickableElement(by=By.XPATH, value="//img[@title='Save Big on Select Streetwear']",
@@ -50,8 +49,9 @@ class HomePage(BasePage):
     bottom_banners = ClickableElement(by=By.XPATH, value="//div[contains(@class, 'yCmsComponent col-xs-6 col-md-3')]",
                                       name='bottom bannrs')
 
-    nothing_found = BaseElement(by=By.XPATH, value="//div[contains(text(), '0 items found for keyword')]",
+    nothing_found_message = BaseElement(by=By.XPATH, value="//div[contains(text(), '0 items found for keyword')]",
                                 name='nothing found')
+    products_found_text = BaseElement(by=By.XPATH, value="//div[contains(text(), 'found')]", name='products found text')
 
     def search(self, word):
         self.header.search_field.send_keys(word)
