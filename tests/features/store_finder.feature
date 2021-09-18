@@ -4,11 +4,14 @@ Feature: Store Finder
         When 'Find stores' button clicked
         Then stores table is shown
 
-    Scenario: Empty search input
+    Scenario Outline: Empty search input
         Given User on store found page
-        When search input is empty
-        And 'Magnifier' button clicked
-        Then 'Check that you entered a valid postcode or place name.' error is shown
+        When 'Magnifier' button clicked
+        Then error is shown
+
+        Examples:
+        | error_text                                               |
+        | 'Check that you entered a valid postcode or place name.' |
 
     Scenario Outline: Particular store search
         Given User on store found page
