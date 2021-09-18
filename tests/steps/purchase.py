@@ -42,11 +42,11 @@ def click_cart_checkout():
 
 
 @when("Fill form")
-def fill_form():
+def fill_form(firstname, lastname):
     CartPage().choose_country = 'Jersey'
     sleep(1)
-    CartPage().name_input = 'Aaa'
-    CartPage().surname_input = 'Bbb'
+    CartPage().name_input = firstname
+    CartPage().surname_input = lastname
     CartPage().address_input = 'Address'
     CartPage().city_input = 'City'
     CartPage().postcode_input = '123456'
