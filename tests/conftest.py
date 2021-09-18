@@ -12,6 +12,13 @@ def browser():
     return Browser()
 
 
+def pytest_addoption(parser):
+    parser.addoption('--thread-number', action='store', type=int, default=0,
+                     help='Number of the thread for parallel run')
+    parser.addoption('--threads-count', action='store', type=int, default=1,
+                     help='Count of threads for parallel run')
+
+
 def pytest_runtest_call():
     chrome_options = Options()
     chrome_options.add_argument('--ignore-ssl-errors=yes')
@@ -33,6 +40,11 @@ def pytest_runtest_teardown():
 
 def pytest_exception_interact():
     browser = Browser()
+
+
+def pytest_collection_modifyitems(session, config, items):
+    if config.getoption("--threads-count") != 1:
+        items[:] = items[config.getoption("--thread-number")::config.getoption("--threads-count")]
 
 
 @pytest.fixture(scope='function')
