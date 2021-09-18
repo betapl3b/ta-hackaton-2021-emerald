@@ -1,10 +1,6 @@
 from hm_3_page_object.base_objects.base_page import BasePage
-from hm_3_page_object.base_objects.elements.input import Input
 from hm_3_page_object.base_objects.elements.clickable_element import ClickableElement
-from hm_3_page_object.base_objects.elements.base_element import BaseElement
-from hm_3_page_object.base_objects.elements.checkbox import Checkbox
-from hm_3_page_object.base_objects.elements.dropdown import Dropdown
-
+from hm_3_page_object.base_objects.elements.header import Header
 from selenium.webdriver.common.by import By
 
 
@@ -47,6 +43,7 @@ class HomePage(BasePage):
     thanks_tab = ClickableElement(by=By.XPATH, value="//div[@class='alert alert-info alert-dismissable getAccAlert']")
     close_thanks_tub = ClickableElement(by=By.XPATH, value="//div[@class='alert alert-info alert-dismissable getAccAlert']"
                                                            "/button")
+    header = Header()
 
 
 

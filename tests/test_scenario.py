@@ -4,20 +4,25 @@ from .test_steps import *
 
 
 @scenario(
-    "features/zhaba.feature",
+    "features/base.feature",
     "Cookie notification"
 )
-def test_cookie():
+def test_cookie(browser):
     pass
 
 
-@pytest.mark.parametrize(
-    ["login", "password"],
-    [('12341@mail.ru', '1234123')],
-)
 @scenario(
-    "features/zhaba.feature",
+    "features/base.feature",
     "Authorization blocked",
+    example_converters=dict(login=str, password=str)
 )
-def test_parametrized(login, password):
+def test_authorization_blocked(browser):
+    pass
+
+
+@scenario(
+    "features/product.feature",
+    "Check product card"
+)
+def test_product_card(browser):
     pass
