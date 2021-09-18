@@ -17,6 +17,8 @@ def pytest_addoption(parser):
                      help='Number of the thread for parallel run')
     parser.addoption('--threads-count', action='store', type=int, default=1,
                      help='Count of threads for parallel run')
+    parser.addoption('--test-group', action='store', type=str, default=False,
+                     help='Name of test group for selective test run')
 
 
 def pytest_runtest_call():
@@ -44,7 +46,18 @@ def pytest_exception_interact():
 
 def pytest_collection_modifyitems(session, config, items):
     if config.getoption("--threads-count") != 1:
-        items[:] = items[config.getoption("--thread-number")::config.getoption("--threads-count")]
+        if config.getoption("--thread-number") != 1:
+            # Drop not_parallel tests for multithreading test run
+            items_parallel = [item for item in items if not item.get_closest_marker('not_parallel')]
+            items[:] = items_parallel[
+                       config.getoption("--thread-number") - 2::config.getoption("--threads-count") - 1]
+        else:
+
+            items[:] = [item for item in items if item.get_closest_marker('not_parallel')]
+            Logger('log.txt').debug(f'Thread #1 reserved for not_parallel tests')
+
+    if config.getoption("--test-group"):
+        items[:] = [item for item in items if item.get_closest_marker(config.getoption("--test-group"))]
 
 
 @pytest.fixture(scope='function')

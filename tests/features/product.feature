@@ -1,3 +1,4 @@
+@product
 Feature: Product
     Scenario: Check product card
         Given User on main page
