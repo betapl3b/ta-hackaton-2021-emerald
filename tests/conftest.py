@@ -1,3 +1,5 @@
+import os
+
 import pytest
 
 from selenium import webdriver
@@ -5,6 +7,7 @@ from hm_3_page_object.helpers.browser import Browser
 from selenium.webdriver.chrome.options import Options
 
 from hm_3_page_object.helpers.logger import Logger
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 @pytest.fixture
@@ -26,7 +29,13 @@ def pytest_runtest_call():
     chrome_options.add_argument('--ignore-ssl-errors=yes')
     chrome_options.add_argument('--ignore-certificate-errors')
 
-    driver = webdriver.Chrome(chrome_options=chrome_options)
+    if os.environ.get('JENKINS_URL') is not None:
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--no-sandbox')
+
+    # driver = webdriver.Chrome(options=chrome_options)
+    driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+
     driver.set_window_size(1920, 1080)
     browser = Browser()
     browser.set_driver(driver)
