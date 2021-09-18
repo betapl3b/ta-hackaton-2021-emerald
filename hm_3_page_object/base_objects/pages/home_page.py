@@ -1,4 +1,5 @@
 from hm_3_page_object.base_objects.base_page import BasePage
+from hm_3_page_object.base_objects.elements.base_element import BaseElement
 from hm_3_page_object.base_objects.elements.clickable_element import ClickableElement
 from hm_3_page_object.base_objects.elements.header import Header
 from selenium.webdriver.common.by import By
@@ -38,15 +39,18 @@ class HomePage(BasePage):
     new_products_prev = ClickableElement(by=By.XPATH, value="//div[contains(text(), \"What's New\")]/"
                                                             "following-sibling::div//div[@class='owl-prev']",
                                          name='next new product')
-    read_more = ClickableElement(by=By.XPATH, value="//img[@title='Free Shipping on All Orders This Weekend']")
+    read_more = ClickableElement(by=By.XPATH, value="//img[@title='Free Shipping on All Orders This Weekend']",
+                                 name='read more')
 
-    thanks_tab = ClickableElement(by=By.XPATH, value="//div[@class='alert alert-info alert-dismissable getAccAlert']")
+    thanks_tab = ClickableElement(by=By.XPATH, value="//div[@class='alert alert-info alert-dismissable getAccAlert']",
+                                  name='thanks_tab')
     close_thanks_tub = ClickableElement(by=By.XPATH, value="//div[@class='alert alert-info alert-dismissable getAccAlert']"
-                                                           "/button")
+                                                           "/button", name='close_thanks_tub')
     bottom_banners = ClickableElement(by=By.XPATH, value = "//div[contains(@class, 'yCmsComponent col-xs-6 col-md-3')]",
-                                      name='bottom bannrs')
+                                      name='bottom banners')
 
-    header = Header()
+    nothing_found = BaseElement(by=By.XPATH, value="//div[contains(text(), '0 items found for keyword')]",
+                                name='nothing found')
 
     def search(self, word):
         self.header.search_field.send_keys(word)

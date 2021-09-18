@@ -32,3 +32,12 @@ Feature: Home Page
         Examples:
         | firstname    | lastname | password   | password_confirmation |
         | 'name'       | 'sur'    | 'passw0rd' | 'passw0rd'            |
+
+    Scenario Outline: Search item
+        Given User on main page
+        When Enter searching word
+        Then Results are showed
+
+         Examples:
+        | word           |
+        | '12341@mail.ru' |
