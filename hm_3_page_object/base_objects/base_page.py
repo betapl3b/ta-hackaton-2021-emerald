@@ -16,6 +16,11 @@ class BasePage:
                                       name='Cookie notification')
     cookie_close_button = ClickableElement(by=By.XPATH, value='//button[@class="js-cookie-notification-accept close"]',
                                            name='Cookie close button')
+    product_card_elem = ClickableElement(by=By.XPATH, value='//div[@class="carousel__item"]/a',
+                                         name='product_item')
+    product_card_elem_name = BaseElement(by=By.XPATH,
+                                         value='//div[@class="carousel__item"]/a/div[@class="carousel__item--name"]',
+                                         name='product_item')
 
     def __init__(self):
         self._url = UrlFactory.get_url(self)
