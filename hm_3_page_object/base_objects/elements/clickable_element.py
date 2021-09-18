@@ -8,3 +8,6 @@ class ClickableElement(BaseElement):
 
     def click(self):
         self._element.click()
+
+    def is_enabled(self):
+        return self._element.is_enabled()
