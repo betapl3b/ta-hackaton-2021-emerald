@@ -6,11 +6,6 @@ from hm_3_page_object.base_objects.pages.login_page import LoginPage
 from hm_3_page_object.base_objects.base_page import BasePage
 
 
-@given("Main page is opened")
-def go_to_main_page():
-    BasePage().open()
-
-
 @then("Main page is opened")
 def main_page_is_opened(browser):
     assert 'Homepage' in browser.driver.title
@@ -41,9 +36,11 @@ def enter_last_name(lastname):
     LoginPage().register_last_name = lastname
 
 
-@when('Enter unique email address')
+@when('Enter unique email address', target_fixture='email')
 def enter_unique_email_adress():
-    LoginPage().register_email = f'email_{str(int(time.time() * 100))[2:]}@emerald.com'
+    email = f'email_{str(int(time.time() * 100))[2:]}@emerald.com'
+    LoginPage().register_email = email
+    return email
 
 
 @when('Enter email address')

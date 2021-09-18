@@ -12,7 +12,7 @@ class UrlFactory:
     def urls(cls):
         return {'BasePage': '',
                 'LoginPage': '/login.html',
-                'DifferentElementsPage': '/different-elements.html'}
+                'CartPage': '/cart.html'}
 
     @classmethod
     def get_url(cls, page):

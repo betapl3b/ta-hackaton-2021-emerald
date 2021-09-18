@@ -1,6 +1,6 @@
 from pytest_bdd import scenario
-import pytest
-from .test_steps import *
+from tests.steps.common import *
+from tests.steps.register import *
 
 
 @scenario(
@@ -13,16 +13,16 @@ def test_cookie(browser):
 
 @scenario(
     "features/base.feature",
-    "Authorization blocked",
+    "Authorization invalid",
     example_converters=dict(login=str, password=str)
 )
-def test_authorization_blocked(browser):
+def test_authorization_invalid(browser):
     pass
 
 
 @scenario(
-    "features/product.feature",
-    "Check product card"
+    "features/base.feature",
+    "Authorization success",
 )
-def test_product_card(browser):
+def test_authorization_success(browser):
     pass
