@@ -1,3 +1,4 @@
+@not_parallel
 Feature: Purchase product
   Scenario Outline: Purchase success
         Given User on main page

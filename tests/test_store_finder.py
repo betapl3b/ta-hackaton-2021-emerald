@@ -1,4 +1,5 @@
 from pytest_bdd import scenario
+from tests.steps.common import *
 
 
 @scenario(
