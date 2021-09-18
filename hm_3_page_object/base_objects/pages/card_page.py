@@ -11,3 +11,5 @@ class CardPage:
     product_price = BaseElement(by=By.XPATH, value='//div[@class="product-details"]/p[@class="price"]',
                                 name='Product price')
     add_to_cart_button = ClickableElement(by=By.ID, value='addToCartButton', name='Add to cart button')
+    checkout_button = ClickableElement(by=By.XPATH, value='//a[@class="btn btn-primary btn-block add-to-cart-button"]',
+                                       name='Checkout button')

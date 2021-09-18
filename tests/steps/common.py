@@ -40,21 +40,6 @@ def login_unsuccess():
     assert LoginPage().wrong_credentials_alert.is_displayed()
 
 
-@when("Choose product", target_fixture="product_name")
-def choose_product():
-    product_name = BasePage().product_card_elem_name.text
-    BasePage().product_card_elem.click()
-    return product_name
-
-
-@then("Product card is opened")
-def product_card_opened(product_name):
-    assert product_name in CardPage().product_title.text.upper()
-    assert CardPage().page_title.is_displayed()
-    assert CardPage().product_price.is_displayed()
-    assert CardPage().add_to_cart_button.is_displayed()
-
-
 @when("Click 'Logout' button")
 def click_logout():
     BasePage().logout_button.click()
