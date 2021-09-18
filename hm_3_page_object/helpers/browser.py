@@ -49,3 +49,7 @@ class Browser(metaclass=SingletonPerThread):
 
     def open(self, url):
         self.driver.get(url)
+
+    @property
+    def window_side(self):
+        return self.driver.get_window_size()

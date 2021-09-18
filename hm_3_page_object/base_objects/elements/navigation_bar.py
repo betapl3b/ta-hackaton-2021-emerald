@@ -13,6 +13,7 @@ class NavigationBar(BaseElement):
     BRANDS_LIST = "//span/a[contains(text(), 'Brands')]/../..//ul[@class='sub-navigation-list has-title']/li/a"
     SUB_ELEMENT_LIST = "//span/a[contains(text(), '{menu}')]/../..//div[@class='title']" \
                        "[contains(text(), '{submenu}')]/../ul[@class='sub-navigation-list has-title']/li/a"
+    EXPAND_SIDEBAR_BUTTON = "//button[@class='btn js-toggle-sm-navigation']"
 
     @property
     def rows(self):
@@ -26,6 +27,12 @@ class NavigationBar(BaseElement):
         elem = self._element.find_element_by_xpath(self.NAVI_ELEMENT_TEMPLATE.format(title=title.capitalize()))
         hover = ActionChains(Browser().driver).move_to_element(elem)
         hover.perform()
+
+    def click_submenu_on_sidebar(self, title):
+        self._element.find_element_by_xpath(self.NAVI_ELEMENT_TEMPLATE.format(title=title.capitalize())).click()
+
+    def expand_sidebar(self):
+        self._element.find_elements_by_xpath(self.EXPAND_SIDEBAR_BUTTON).click()
 
     @property
     def elements(self):
