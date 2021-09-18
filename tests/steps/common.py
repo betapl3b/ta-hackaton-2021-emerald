@@ -80,4 +80,4 @@ def fill_input(store_name):
 @then("particular store is shown")
 def error_is_shown(store_name):
     rows = StoreFinderPage().stores_list.rows
-    assert rows[5].split('\n')[0] == store_name
+    assert rows[0].split('\n')[0] == store_name
