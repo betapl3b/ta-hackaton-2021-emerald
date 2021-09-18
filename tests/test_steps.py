@@ -21,3 +21,12 @@ def close_notification(browser):
 @then("No notification")
 def no_notification(browser):
     assert not LoginPage().cookie_notification.is_displayed()
+
+
+@when("Login")
+def login(browser, login, password):
+    LoginPage().login(login, password)
+
+@then("Login unsuccess")
+def login_unsuccess(browser):
+    assert LoginPage().wrong_credentials_alert.is_displayed() == True
