@@ -52,7 +52,7 @@ class StoreFinderPage(BasePage):
 
     stores_list = List(
         by=By.CLASS_NAME,
-        value='ul.store__finder--navigation-list js-store-finder-navigation-list',
+        value='store__finder--navigation-list.js-store-finder-navigation-list',
         name='Stores list',
     )
 

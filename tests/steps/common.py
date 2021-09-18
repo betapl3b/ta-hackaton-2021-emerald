@@ -1,3 +1,5 @@
+from time import sleep
+
 from pytest_bdd import given, then, when
 
 from hm_3_page_object.base_objects.base_page import BasePage
@@ -52,22 +54,22 @@ def click_logout():
 
 @when("'Find stores' button clicked")
 def click_find_stores_button():
-    StoreFinderPage().find_nearest_stores_button().click()
+    StoreFinderPage().find_nearest_stores_button.click()
 
 
 @when("'Magnifier' button clicked")
 def click_magnifier_button():
-    StoreFinderPage().magnifier_button().click()
+    StoreFinderPage().magnifier_button.click()
 
 
 @then("stores table is shown")
 def stores_table_is_shown():
-    assert StoreFinderPage().stores_list().is_displayed()
+    assert StoreFinderPage().stores_list.is_displayed()
 
 
 @then("error is shown")
 def error_is_shown(error_text):
-    assert StoreFinderPage().error_message().value() == error_text
+    assert StoreFinderPage().error_message.value() == error_text
 
 
 @when("search input filled with a value")
