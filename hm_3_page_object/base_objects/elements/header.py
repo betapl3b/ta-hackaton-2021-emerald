@@ -10,3 +10,4 @@ class Header(BaseElement):
     """
     navigation_bar = NavigationBar("//ul[contains(@class, 'nav__links--products js-offcanvas-links')]",
                                    name='navigation_bar', by=By.XPATH)
+
