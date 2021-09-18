@@ -10,10 +10,13 @@ class UrlFactory:
 
     @classproperty
     def urls(cls):
-        return {'BasePage': '',
-                'HomePage': '',
-                'LoginPage': '/login.html',
-                'CartPage': '/cart.html'}
+        return {
+            'BasePage': '',
+            'HomePage': '',
+            'LoginPage': '/login.html',
+            'CartPage': '/cart.html',
+            'StoreFinder': '/store-finder.html',
+        }
 
     @classmethod
     def get_url(cls, page):

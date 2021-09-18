@@ -1,6 +1,6 @@
 from pytest_bdd import scenario
 from tests.steps.common import *
-
+from tests.steps.purchase import *
 
 @scenario(
     "features/product.feature",
