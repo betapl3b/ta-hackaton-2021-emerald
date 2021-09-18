@@ -7,6 +7,7 @@ class TestNotAuthorizedZone:
         page = LoginPage()
         page.open()
         page.login_email = '12341@mail.ru'
-        page.password = '1234123'
+        page.login_password = '1234123'
         page.login_button.click()
         assert page.wrong_credentials_alert.is_displayed() == True
+
