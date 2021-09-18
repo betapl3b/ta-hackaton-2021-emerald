@@ -5,7 +5,11 @@ Feature: Home Page
         And Close notification
         Then No notification
 
-    Scenario: Authorization blocked
+    Scenario Outline: Authorization blocked
         Given User on login page
         When Login
         Then Login unsuccess
+
+        Examples:
+        | login           | password |
+        | '12341@mail.ru' | '1234123' |

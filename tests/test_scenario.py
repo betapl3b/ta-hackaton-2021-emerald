@@ -11,13 +11,10 @@ def test_cookie():
     pass
 
 
-@pytest.mark.parametrize(
-    ["login", "password"],
-    [('12341@mail.ru', '1234123')],
-)
 @scenario(
     "features/zhaba.feature",
     "Authorization blocked",
+    example_converters=dict(login=str, password=str)
 )
-def test_parametrized(login, password):
+def test_authorization_blocked():
     pass
