@@ -10,8 +10,8 @@ Feature: Store Finder
         Then error is shown
 
         Examples:
-        | error_text                                               |
-        | 'Check that you entered a valid postcode or place name.' |
+        | error_text                                             |
+        | Check that you entered a valid postcode or place name. |
 
     Scenario Outline: Particular store search
         Given User on store finder page
@@ -21,4 +21,4 @@ Feature: Store Finder
 
         Examples:
         | store_name |
-        | 'Bedford'  |
+        | BEDFORD    |

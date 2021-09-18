@@ -69,7 +69,7 @@ def stores_table_is_shown():
 
 @then("error is shown")
 def error_is_shown(error_text):
-    assert StoreFinderPage().error_message.value() == error_text
+    assert StoreFinderPage().error_message.text == error_text
 
 
 @when("search input filled with a value")
@@ -79,4 +79,5 @@ def fill_input(store_name):
 
 @then("particular store is shown")
 def error_is_shown(store_name):
-    assert StoreFinderPage().stores_list[0].value == store_name
+    rows = StoreFinderPage().stores_list.rows
+    assert rows[5].split('\n')[0] == store_name
