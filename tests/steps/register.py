@@ -2,6 +2,7 @@ import time
 
 from pytest_bdd import given, when, then
 
+from hm_3_page_object.base_objects.pages.home_page import HomePage
 from hm_3_page_object.base_objects.pages.login_page import LoginPage
 from hm_3_page_object.base_objects.base_page import BasePage
 
@@ -80,7 +81,7 @@ def click_register_button():
 
 @then("'Thank you for registering' banner is displayed")
 def thank_you_registration_banner_is_displayed():
-    pass
+    HomePage().thanks_tab.is_displayed()
 
 
 @then("Username is shown in header section")

@@ -11,6 +11,7 @@ class UrlFactory:
     @classproperty
     def urls(cls):
         return {'BasePage': '',
+                'HomePage': '',
                 'LoginPage': '/login.html',
                 'CartPage': '/cart.html'}
 

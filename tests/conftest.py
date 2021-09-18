@@ -4,6 +4,8 @@ from selenium import webdriver
 from hm_3_page_object.helpers.browser import Browser
 from selenium.webdriver.chrome.options import Options
 
+from hm_3_page_object.helpers.logger import Logger
+
 
 @pytest.fixture
 def browser():
@@ -52,3 +54,7 @@ def soft_assert():
         error_text = '\n'.join(_exc)
         raise AssertionError(f'Found errors: {len(_exc)}\n'
                              f'{error_text}')
+
+
+def pytest_bdd_after_step(request, feature, scenario, step, step_func, step_func_args):
+    Logger(filename='result.log').info(f'Step {step} succeed')

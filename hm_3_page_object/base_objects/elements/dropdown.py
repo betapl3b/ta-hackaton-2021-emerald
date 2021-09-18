@@ -1,4 +1,5 @@
 from hm_3_page_object.base_objects.elements.input import Input
+from hm_3_page_object.helpers.logger import Logger
 
 
 class Dropdown(Input):
@@ -18,4 +19,5 @@ class Dropdown(Input):
                 option.click()
                 element = option
                 break
+        Logger().debug(f"Selected option '{value}' in {self.element_description}")
         return element

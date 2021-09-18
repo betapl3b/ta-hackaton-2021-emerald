@@ -10,7 +10,7 @@ class HomePage(BasePage):
     all_href_images = ClickableElement(by=By.XPATH, value="//a//img", name='clickable_images')
     the_biggest_banner = ClickableElement(by=By.XPATH, value="//img[@title='Start Your Season']",
                                           name='start you season')
-    show_now = ClickableElement(by=By.XPATH, value = "//img[@title='Save Big on Select Streetwear']",
+    show_now = ClickableElement(by=By.XPATH, value="//img[@title='Save Big on Select Streetwear']",
                                 name='Save Big on Select Streetwear')
 
     shop_women = ClickableElement(by=By.XPATH, value="//div[@class='simple-banner banner__component--responsive']//"
@@ -40,14 +40,15 @@ class HomePage(BasePage):
                                                             "following-sibling::div//div[@class='owl-prev']",
                                          name='next new product')
     read_more = ClickableElement(by=By.XPATH, value="//img[@title='Free Shipping on All Orders This Weekend']",
-                                 name='read more')
+                                 name='read_more')
 
-    thanks_tab = ClickableElement(by=By.XPATH, value="//div[@class='alert alert-info alert-dismissable getAccAlert']",
-                                  name='thanks_tab')
-    close_thanks_tub = ClickableElement(by=By.XPATH, value="//div[@class='alert alert-info alert-dismissable getAccAlert']"
-                                                           "/button", name='close_thanks_tub')
-    bottom_banners = ClickableElement(by=By.XPATH, value = "//div[contains(@class, 'yCmsComponent col-xs-6 col-md-3')]",
-                                      name='bottom banners')
+    thanks_tab = BaseElement(by=By.XPATH, value="//div[@class='alert alert-info alert-dismissable getAccAlert']",
+                             name='thanks_tab')
+    close_thanks_tab = ClickableElement(by=By.XPATH,
+                                        value="//div[@class='alert alert-info alert-dismissable getAccAlert']"
+                                              "/button", name='close_thanks_tab')
+    bottom_banners = ClickableElement(by=By.XPATH, value="//div[contains(@class, 'yCmsComponent col-xs-6 col-md-3')]",
+                                      name='bottom bannrs')
 
     nothing_found = BaseElement(by=By.XPATH, value="//div[contains(text(), '0 items found for keyword')]",
                                 name='nothing found')
@@ -55,8 +56,3 @@ class HomePage(BasePage):
     def search(self, word):
         self.header.search_field.send_keys(word)
         self.header.search_button.click()
-
-
-
-
-
