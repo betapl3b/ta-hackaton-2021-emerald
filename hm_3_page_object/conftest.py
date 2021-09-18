@@ -16,7 +16,8 @@ def pytest_runtest_call():
     with allure.step('Setup driver'):
         chrome_options = Options()
         chrome_options.add_argument('--no-sandbox')
-        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--ignore-ssl-errors=yes')
+        chrome_options.add_argument('--ignore-certificate-errors')
 
         driver = webdriver.Chrome(chrome_options=chrome_options)
         with allure.step('Maximize window'):
@@ -33,13 +34,6 @@ def pytest_runtest_teardown():
         raise (f'Не удалось закрыть браузер: {e}')
 
 
-def pytest_exception_interact():
-    browser = Browser()
-    allure.attach(
-        body=browser.driver.get_screenshot_as_png(),
-        name=f'Screenshot - {browser.driver.current_url}',
-        attachment_type=AttachmentType.PNG
-    )
 
 
 @pytest.fixture(scope='function')

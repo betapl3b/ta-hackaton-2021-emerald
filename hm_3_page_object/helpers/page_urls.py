@@ -1,6 +1,6 @@
 from hm_3_page_object.helpers.classproperty import classproperty
 
-BASE_URL = "https://jdi-testing.github.io/jdi-light"
+BASE_URL = "https://apparel-uk.local:9002/ucstorefront/en"
 
 
 class UrlFactory:
@@ -10,7 +10,7 @@ class UrlFactory:
 
     @classproperty
     def urls(cls):
-        return {'IndexPage': '/index.html',
+        return {'LoginPage': '/login.html',
                 'DifferentElementsPage': '/different-elements.html'}
 
     @classmethod
