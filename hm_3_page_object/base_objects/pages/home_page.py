@@ -43,7 +43,15 @@ class HomePage(BasePage):
     thanks_tab = ClickableElement(by=By.XPATH, value="//div[@class='alert alert-info alert-dismissable getAccAlert']")
     close_thanks_tub = ClickableElement(by=By.XPATH, value="//div[@class='alert alert-info alert-dismissable getAccAlert']"
                                                            "/button")
+    bottom_banners = ClickableElement(by=By.XPATH, value = "//div[contains(@class, 'yCmsComponent col-xs-6 col-md-3')]",
+                                      name='bottom bannrs')
+
     header = Header()
+
+    def search(self, word):
+        self.header.search_field.send_keys(word)
+        self.header.search_button.click()
+
 
 
 
