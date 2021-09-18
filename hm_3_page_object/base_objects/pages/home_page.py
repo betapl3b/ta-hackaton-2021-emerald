@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 
 class HomePage(BasePage):
 
-    all_href_images = ClickableElement(by=By.XPATH, value="//a//img")
+    all_href_images = ClickableElement(by=By.XPATH, value="//a//img", name='clickable_images')
     the_biggest_banner = ClickableElement(by=By.XPATH, value="//img[@title='Start Your Season']",
                                           name='start you season')
     show_now = ClickableElement(by=By.XPATH, value = "//img[@title='Save Big on Select Streetwear']",
