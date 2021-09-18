@@ -1,11 +1,14 @@
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+
+from hm_3_page_object.helpers.logger import Logger
 from hm_3_page_object.helpers.singleton import SingletonPerThread
 
 
 class Browser(metaclass=SingletonPerThread):
     driver: WebDriver = None
+    logger: Logger = Logger(filename='result.log')
 
     def set_driver(self, driver: WebDriver):
         self.driver = driver

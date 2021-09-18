@@ -2,6 +2,8 @@ from hm_3_page_object.helpers.browser import Browser
 from hm_3_page_object.base_objects.elements.clickable_element import ClickableElement
 from selenium.webdriver.remote.webdriver import WebElement
 
+from hm_3_page_object.helpers.logger import Logger
+
 
 class Input(ClickableElement):
     """
@@ -10,6 +12,7 @@ class Input(ClickableElement):
 
     def send_keys(self, text):
         self._element.click()
+        Logger().debug(f"Sending '{text}' to input {self.element_description}")
         self._element.send_keys(text)
         return self._element
 

@@ -16,7 +16,12 @@ class BaseElement:
         self._element_timeout = 1
 
     @property
+    def element_description(self):
+        return f"element with {self._selector_type}='{self._selector}'"
+
+    @property
     def _element(self):
+        Browser().logger.debug(f"Trying to find element {self.element_description}")
         if isinstance(self._parent, BaseElement):
             element = self._parent._element.find_element(by=self._selector_type, value=self._selector)
         elif isinstance(self._parent, WebElement):
@@ -25,6 +30,7 @@ class BaseElement:
             element = Browser().get_element(selector_type=self._selector_type,
                                             selector=self._selector,
                                             timeout=self._element_timeout)
+        Browser().logger.debug(f"Found {self.element_description}")
         Browser().scroll_to(element)
         return element
 
