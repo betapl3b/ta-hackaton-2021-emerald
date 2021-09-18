@@ -1,10 +1,7 @@
-import allure
 from hm_3_page_object.base_objects.base_page import BasePage
-from hm_3_page_object.base_objects.elements.input import Input
 from hm_3_page_object.base_objects.elements.clickable_element import ClickableElement
 from hm_3_page_object.base_objects.elements.base_element import BaseElement
 from hm_3_page_object.base_objects.elements.cart_list import CartList
-from hm_3_page_object.base_objects.elements.dropdown import Dropdown
 
 from selenium.webdriver.common.by import By
 

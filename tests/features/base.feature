@@ -5,11 +5,30 @@ Feature: Home Page
         And Close notification
         Then No notification
 
-    Scenario Outline: Authorization blocked
+    Scenario Outline: Authorization invalid
         Given User on login page
         When Login
         Then Login unsuccess
 
         Examples:
-        | login           | password |
+        | email           | password |
         | '12341@mail.ru' | '1234123' |
+
+    Scenario Outline: Authorization success
+        Given User on main page
+        When Click 'SIGN IN / REGISTER' button
+        And Enter first name
+        And Enter last name
+        And Enter unique email address
+        And Enter password
+        And Enter password confirmation
+        And Check 'Terms and conditions'
+        And Click 'Register' button
+        And Click 'Logout' button
+        And Login
+        Then Main page is opened
+        And Username is shown in header section
+
+        Examples:
+        | firstname    | lastname | password   | password_confirmation |
+        | 'name'       | 'sur'    | 'passw0rd' | 'passw0rd'            |

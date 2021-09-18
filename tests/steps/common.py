@@ -31,8 +31,8 @@ def no_notification():
 
 
 @when("Login")
-def login(login, password):
-    LoginPage().login(login, password)
+def login(email, password):
+    LoginPage().login(email, password)
 
 
 @then("Login unsuccess")
@@ -53,3 +53,8 @@ def product_card_opened(product_name):
     assert CardPage().page_title.is_displayed()
     assert CardPage().product_price.is_displayed()
     assert CardPage().add_to_cart_button.is_displayed()
+
+
+@when("Click 'Logout' button")
+def click_logout():
+    BasePage().logout_button.click()

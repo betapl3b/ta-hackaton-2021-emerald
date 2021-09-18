@@ -1,6 +1,6 @@
 Feature: Registration
     Scenario Outline: User sign up
-        Given Main page is opened
+        Given User on main page
         When Click 'SIGN IN / REGISTER' button
         Then Page title contains 'Login'
         When Select title

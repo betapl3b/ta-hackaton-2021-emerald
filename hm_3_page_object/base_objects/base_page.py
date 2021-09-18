@@ -21,6 +21,8 @@ class BasePage:
     product_card_elem_name = BaseElement(by=By.XPATH,
                                          value='//div[@class="carousel__item"]/a/div[@class="carousel__item--name"]',
                                          name='product_item')
+    logout_button = ClickableElement(by=By.XPATH, value='//a[@href="/ucstorefront/en/logout"]',
+                                     name='Logout button')
 
     def __init__(self):
         self._url = UrlFactory.get_url(self)
