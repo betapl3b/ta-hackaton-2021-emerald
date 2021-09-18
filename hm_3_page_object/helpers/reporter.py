@@ -46,7 +46,7 @@ def prepare_html(path):
                 test_status = 'failed' if step['result']['status'] != 'passed' else test_status
 
             html += f'<tr><td><button type="button" id="b{test_index}" aria-expanded="false"' \
-                    f'onclick="toggle(this.id,"{str(",#".join(step_id_list))}");">' \
+                    f' onclick="toggle(this.id,"{str(",#".join(step_id_list))}");">' \
                     f'<svg xmlns="http://www.w3.org/2000/svg&quot;"viewBox="0 0 80 80" focusable="false">' \
                     '<path d="M70.3 13.8L40 66.3 9.7 13.8z"></path></svg></button></td>' \
                     f'<td class="test-index">{test_index}</td><td class="test-feature">{feature["name"]}</td>' \
