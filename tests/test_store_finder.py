@@ -2,6 +2,7 @@ from pytest_bdd import scenario
 from tests.steps.common import *
 
 
+# Didn't work on Jenkins
 # @scenario(
 #     "features/store_finder.feature",
 #     "Show all stores",
