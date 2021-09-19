@@ -2,12 +2,12 @@ from pytest_bdd import scenario
 from tests.steps.common import *
 
 
-@scenario(
-    "features/store_finder.feature",
-    "Show all stores",
-)
-def test_show_all_stores(browser):
-    pass
+# @scenario(
+#     "features/store_finder.feature",
+#     "Show all stores",
+# )
+# def test_show_all_stores(browser):
+#     pass
 
 
 @scenario(
