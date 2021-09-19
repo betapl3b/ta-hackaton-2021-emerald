@@ -50,12 +50,6 @@ class StoreFinderPage(BasePage):
         name='Top Next button',
     )
 
-    # browser = Browser()
-    # stores_list = browser.get_element(
-    #     selector_type=By.CLASS_NAME,
-    #     selector='store__finder--navigation-list.js-store-finder-navigation-list',
-    #     timeout=5,
-    # )
     stores_list = List(
         by=By.CLASS_NAME,
         value='store__finder--navigation-list.js-store-finder-navigation-list',

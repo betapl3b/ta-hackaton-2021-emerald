@@ -54,7 +54,7 @@ def click_logout():
 
 @when("'Find stores' button clicked")
 def click_find_stores_button():
-    sleep(5)
+    sleep(30)
     StoreFinderPage().find_nearest_stores_button.click()
 
 
@@ -65,7 +65,7 @@ def click_magnifier_button():
 
 @then("stores table is shown")
 def stores_table_is_shown():
-    sleep(5)
+    sleep(30)
     assert StoreFinderPage().stores_list.is_displayed(), "Stores list isn't shown."
 
 
