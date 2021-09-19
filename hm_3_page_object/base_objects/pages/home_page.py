@@ -1,7 +1,6 @@
 from hm_3_page_object.base_objects.base_page import BasePage
 from hm_3_page_object.base_objects.elements.base_element import BaseElement
 from hm_3_page_object.base_objects.elements.clickable_element import ClickableElement
-from hm_3_page_object.base_objects.elements.header import Header
 from selenium.webdriver.common.by import By
 
 
@@ -51,7 +50,6 @@ class HomePage(BasePage):
 
     nothing_found_message = BaseElement(by=By.XPATH, value="//div[contains(text(), '0 items found for keyword')]",
                                 name='nothing found')
-    products_found_text = BaseElement(by=By.XPATH, value="//div[contains(text(), 'found')]", name='products found text')
 
     def search(self, word):
         self.header.search_field.send_keys(word)
