@@ -38,11 +38,12 @@ def prepare_html(path):
             for step_index, step in enumerate(test['steps']):
                 step_id = f's-{test_index}-{step_index}'
                 step_id_list.append(f'#{step_id}')
+                step_dur = step["result"]["duration"] / 1000000000
                 steps_html += f'<tr id="{step_id}" class="hidden"><td>{step_index}</td>' \
                               f'<td colspan="3" class="step-name">{step["name"]}</td>' \
-                              f'<td>{step["result"]["duration"]}</td>' \
+                              f'<td>{step_dur}</td>' \
                               f'<td>{step["result"]["status"]}</td></tr>'
-                summ_dur += int(step['result']['duration'])
+                summ_dur += int(step_dur)
                 test_status = 'failed' if step['result']['status'] != 'passed' else test_status
 
             html += f'<tr><td><button type="button" id="b{test_index}" aria-expanded="false"' \
