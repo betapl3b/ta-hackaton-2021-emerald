@@ -14,12 +14,14 @@ def pytest_launch(*args):
 
 
 if __name__ == '__main__':
-    # do
-    os.environ['LOG_LEVEL'] = 'DEBUG'
     threads_count = int(sys.argv[1])
     report_dir = str(sys.argv[2])
     if len(sys.argv) > 3:
-        add_args = sys.argv[3]
+        attr_dir = {key: value for key, value in [attr.split('=') for attr in sys.argv[3].split(' ')]}
+        os.environ['LOG_LEVEL'] = attr_dir.get('--log-level', 'INFO')
+        if attr_dir.get('--log-level'):
+            del attr_dir['--log-level']
+        add_attr = ' '.join([f'{key}={value}' for key, value in attr_dir.items()])
     else:
         add_args = ""
     shutil.rmtree(report_dir, ignore_errors=True)

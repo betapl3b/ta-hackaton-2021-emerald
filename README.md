@@ -19,6 +19,8 @@ add_command_line_options ДОЛЖНЫ БЫТЬ В КАВЫЧКАХ
 
 --test-group - Название метки, по которой будет выбрана группа тестов для запуска. store_openings
 
+--log-level - Уровень логирования (DEBUG, INFO...). по умолчанию INFO, логи пишутся в папку logs
+
 Пример запуска теста в 3 потока для всех тестов с меткой product: python .\runner.py 3 results '--test-group=product'
 (Tc)
 
