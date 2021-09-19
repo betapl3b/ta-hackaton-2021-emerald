@@ -94,3 +94,7 @@ def soft_assert():
 
 def pytest_bdd_after_step(request, feature, scenario, step, step_func, step_func_args):
     Logger().info(f'Step {step} succeed')
+
+
+def pytest_bdd_step_error(request, feature, scenario, step, step_func, step_func_args, exception):
+    Logger().error(f'Step {step} failed with exception:\n{str(exception)}')
