@@ -65,7 +65,7 @@ def click_magnifier_button():
 
 @then("stores table is shown")
 def stores_table_is_shown():
-    sleep(1)
+    sleep(2)
     assert StoreFinderPage().stores_list.is_displayed(), "Stores list isn't shown."
 
 
