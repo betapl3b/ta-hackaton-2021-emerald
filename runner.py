@@ -14,6 +14,7 @@ def pytest_launch(*args):
 
 
 if __name__ == '__main__':
+    # do
     os.environ['LOG_LEVEL'] = 'DEBUG'
     threads_count = int(sys.argv[1])
     report_dir = str(sys.argv[2])
@@ -32,6 +33,6 @@ if __name__ == '__main__':
         pytest_thread = threading.Thread(target=pytest_launch,
                                          args=(f"--threads-count={threads_count}", f"--thread-number={thread_number}",
                                                f"--cucumberjson={report_dir}/results_thread{thread_number}.json",
-                                               f"--junitxml={report_dir}/xml_thread{thread_number}", add_args,
+                                               f"--junitxml={report_dir}/xml_thread{thread_number}.xml", add_args,
                                                "tests"))
         pytest_thread.start()
