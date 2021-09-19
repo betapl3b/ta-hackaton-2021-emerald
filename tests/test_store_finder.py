@@ -23,4 +23,6 @@ def test_empty_search_input(browser):
     "Particular store search",
 )
 def test_particular_store_search(browser):
+    """This test fails because store finder filter doesn't work."""
+
     pass
