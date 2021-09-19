@@ -3,7 +3,7 @@ import shutil
 import os
 import sys
 import threading
-from hm_3_page_object.helpers.logger import Logger
+from src.helpers.logger import Logger
 
 
 def pytest_launch(*args):

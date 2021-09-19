@@ -2,9 +2,9 @@ from time import sleep
 
 from pytest_bdd import given, then, when
 
-from hm_3_page_object.base_objects.base_page import BasePage
-from hm_3_page_object.base_objects.pages.login_page import LoginPage
-from hm_3_page_object.base_objects.pages.store_finder_page import StoreFinderPage
+from src.base_objects.base_page import BasePage
+from src.base_objects.pages.login_page import LoginPage
+from src.base_objects.pages.store_finder_page import StoreFinderPage
 
 
 @given("User on main page")

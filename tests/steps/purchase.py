@@ -2,11 +2,11 @@ from pytest_bdd import given, when, then
 
 from time import sleep
 
-from hm_3_page_object.base_objects.pages.login_page import LoginPage
+from src.base_objects.pages.login_page import LoginPage
 
-from hm_3_page_object.base_objects.pages.card_page import CardPage
-from hm_3_page_object.base_objects.pages.cart_page import CartPage
-from hm_3_page_object.base_objects.base_page import BasePage
+from src.base_objects.pages.card_page import CardPage
+from src.base_objects.pages.cart_page import CartPage
+from src.base_objects.base_page import BasePage
 
 
 @when("Choose product", target_fixture="product_name")

@@ -2,9 +2,9 @@ import time
 
 from pytest_bdd import given, when, then
 
-from hm_3_page_object.base_objects.pages.home_page import HomePage
-from hm_3_page_object.base_objects.pages.login_page import LoginPage
-from hm_3_page_object.base_objects.base_page import BasePage
+from src.base_objects.pages.home_page import HomePage
+from src.base_objects.pages.login_page import LoginPage
+from src.base_objects.base_page import BasePage
 
 
 @then("Main page is opened")

@@ -3,10 +3,10 @@ import os
 import pytest
 
 from selenium import webdriver
-from hm_3_page_object.helpers.browser import Browser
+from src.helpers.browser import Browser
 from selenium.webdriver.chrome.options import Options
 
-from hm_3_page_object.helpers.logger import Logger
+from src.helpers.logger import Logger
 from webdriver_manager.chrome import ChromeDriverManager
 
 
@@ -93,4 +93,4 @@ def soft_assert():
 
 
 def pytest_bdd_after_step(request, feature, scenario, step, step_func, step_func_args):
-    Logger(filename='result.log').info(f'Step {step} succeed')
+    Logger().info(f'Step {step} succeed')

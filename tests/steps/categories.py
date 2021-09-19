@@ -1,8 +1,8 @@
 import time
 from pytest_bdd import given, when, then
 
-from hm_3_page_object.base_objects.pages.home_page import HomePage
-from hm_3_page_object.base_objects.pages.categories_page import CategoriesPage
+from src.base_objects.pages.home_page import HomePage
+from src.base_objects.pages.categories_page import CategoriesPage
 
 
 @when("Click 'shop women'")

@@ -1,9 +1,9 @@
 from pytest_bdd import given, when, then
 
-from hm_3_page_object.base_objects.pages.home_page import HomePage
-from hm_3_page_object.base_objects.pages.categories_page import CategoriesPage
-from hm_3_page_object.helpers.browser import Browser
-from hm_3_page_object.helpers.page_urls import BASE_URL
+from src.base_objects.pages.home_page import HomePage
+from src.base_objects.pages.categories_page import CategoriesPage
+from src.helpers.browser import Browser
+from src.helpers.page_urls import BASE_URL
 
 
 @when("Enter searching word")
