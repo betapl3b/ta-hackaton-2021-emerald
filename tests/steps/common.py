@@ -60,7 +60,6 @@ def click_find_stores_button():
 
 @when("'Magnifier' button clicked")
 def click_magnifier_button():
-    sleep(1)
     StoreFinderPage().magnifier_button.click()
 
 
@@ -76,7 +75,6 @@ def error_is_shown(error_text):
 
 @when("search input filled with a value")
 def fill_input(store_name):
-    sleep(1)
     StoreFinderPage().query_input = store_name
 
 
