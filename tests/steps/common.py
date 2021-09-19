@@ -54,7 +54,7 @@ def click_logout():
 
 @when("'Find stores' button clicked")
 def click_find_stores_button():
-    sleep(1)
+    sleep(2)
     StoreFinderPage().find_nearest_stores_button.click()
 
 
