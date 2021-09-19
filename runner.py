@@ -3,6 +3,7 @@ import shutil
 import os
 import sys
 import threading
+from hm_3_page_object.helpers.logger import Logger
 
 
 def pytest_launch(*args):
@@ -13,6 +14,7 @@ def pytest_launch(*args):
 
 
 if __name__ == '__main__':
+    os.environ['LOG_LEVEL'] = 'DEBUG'
     threads_count = int(sys.argv[1])
     report_dir = str(sys.argv[2])
     if len(sys.argv) > 3:
@@ -21,6 +23,10 @@ if __name__ == '__main__':
         add_args = ""
     shutil.rmtree(report_dir, ignore_errors=True)
     os.makedirs(report_dir)
+
+    if os.environ.get('LOG_LEVEL'):
+        shutil.rmtree('logs', ignore_errors=True)
+        os.makedirs('logs')
 
     for thread_number in range(threads_count):
         pytest_thread = threading.Thread(target=pytest_launch,

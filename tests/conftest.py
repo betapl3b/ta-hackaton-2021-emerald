@@ -54,16 +54,18 @@ def pytest_exception_interact():
 
 
 def pytest_collection_modifyitems(session, config, items):
+    Logger(f'logs/log_{config.getoption("--thread-number")}.log').debug(
+        f'Thread {config.getoption("--thread-number")} has been created')
     if config.getoption("--threads-count") != 1:
-        if config.getoption("--thread-number") != 1:
+        if config.getoption("--thread-number") != 0:
             # Drop not_parallel tests for multithreading test run
             items_parallel = [item for item in items if not item.get_closest_marker('not_parallel')]
             items[:] = items_parallel[
-                       config.getoption("--thread-number") - 2::config.getoption("--threads-count") - 1]
+                       config.getoption("--thread-number") - 1::config.getoption("--threads-count") - 1]
         else:
 
             items[:] = [item for item in items if item.get_closest_marker('not_parallel')]
-            Logger('log.txt').debug(f'Thread #1 reserved for not_parallel tests')
+            Logger('log.txt').debug(f'Thread #0 reserved for not_parallel tests')
 
     if config.getoption("--test-group"):
         items[:] = [item for item in items if item.get_closest_marker(config.getoption("--test-group"))]
