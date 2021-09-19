@@ -81,7 +81,7 @@ def click_register_button():
 
 @then("'Thank you for registering' banner is displayed")
 def thank_you_registration_banner_is_displayed():
-    HomePage().thanks_tab.is_displayed()
+    assert HomePage().thanks_tab.is_displayed()
 
 
 @then("Username is shown in header section")

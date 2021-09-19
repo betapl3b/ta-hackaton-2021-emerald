@@ -15,7 +15,7 @@ class UrlFactory:
             'HomePage': '',
             'LoginPage': '/login.html',
             'CartPage': '/cart.html',
-            'StoreFinder': '/store-finder.html',
+            'StoreFinderPage': '/store-finder.html',
             'CategoriesPage': '/search'
         }
 
