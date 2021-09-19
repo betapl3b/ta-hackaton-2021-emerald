@@ -21,7 +21,7 @@ if __name__ == '__main__':
         os.environ['LOG_LEVEL'] = attr_dir.get('--log-level', 'INFO')
         if attr_dir.get('--log-level'):
             del attr_dir['--log-level']
-        add_attr = ' '.join([f'{key}={value}' for key, value in attr_dir.items()])
+        add_args = ' '.join([f'{key}={value}' for key, value in attr_dir.items()])
     else:
         add_args = ""
     shutil.rmtree(report_dir, ignore_errors=True)
