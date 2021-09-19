@@ -5,10 +5,10 @@ from hm_3_page_object.base_objects.elements.base_element import BaseElement
 from hm_3_page_object.base_objects.elements.clickable_element import ClickableElement
 from hm_3_page_object.base_objects.elements.input import Input
 from hm_3_page_object.base_objects.elements.list import List
+from hm_3_page_object.helpers.browser import Browser
 
 
 class StoreFinderPage(BasePage):
-
     # Error message
     error_message = BaseElement(
         by=By.CLASS_NAME,
