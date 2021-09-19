@@ -16,6 +16,7 @@ class UrlFactory:
             'LoginPage': '/login.html',
             'CartPage': '/cart.html',
             'StoreFinder': '/store-finder.html',
+            'CategoriesPage': '/search'
         }
 
     @classmethod
