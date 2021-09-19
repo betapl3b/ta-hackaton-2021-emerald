@@ -65,7 +65,7 @@ def pytest_collection_modifyitems(session, config, items):
         else:
 
             items[:] = [item for item in items if item.get_closest_marker('not_parallel')]
-            Logger('log.txt').debug(f'Thread #0 reserved for not_parallel tests')
+            Logger().debug(f'Thread #0 reserved for not_parallel tests')
 
     if config.getoption("--test-group"):
         items[:] = [item for item in items if item.get_closest_marker(config.getoption("--test-group"))]

@@ -8,7 +8,13 @@ from hm_3_page_object.helpers.singleton import SingletonPerThread
 
 class Browser(metaclass=SingletonPerThread):
     driver: WebDriver = None
-    logger: Logger = Logger(filename='result.log')
+    _logger: Logger = None
+
+    @property
+    def logger(self):
+        if self._logger is None:
+            self._logger = Logger()
+        return self._logger
 
     def set_driver(self, driver: WebDriver):
         self.driver = driver
