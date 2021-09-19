@@ -54,8 +54,8 @@ def pytest_exception_interact():
 
 
 def pytest_collection_modifyitems(session, config, items):
-    Logger(f'logs/log_{config.getoption("--thread-number")}.log').debug(
-        f'Thread {config.getoption("--thread-number")} has been created')
+    log_file = f'logs/log_{config.getoption("--thread-number")}.log'
+    Logger(log_file).debug(f'Thread {config.getoption("--thread-number")} has been created')
     if config.getoption("--threads-count") != 1:
         if config.getoption("--thread-number") != 0:
             # Drop not_parallel tests for multithreading test run
