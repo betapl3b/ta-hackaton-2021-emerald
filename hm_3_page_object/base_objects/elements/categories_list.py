@@ -15,7 +15,7 @@ class CategoriesList(BaseElement):
         for i in range(len(category_item_list)):
             res.append(
                 CategoryItem(by=By.XPATH,
-                             value=f"//input[@type='checkbox']/parent::label//span[contains(text(), '{category_item_list[i].text.split('(')[0][:-2].capitalize()}')]",
+                             value=f"//span[contains(text(),'{category_item_list[i].text.split('(')[0][:-2].capitalize()}')]/ancestor::label",
                              name='category item')
             )
         return res

@@ -83,3 +83,12 @@ def fill_input(store_name):
 def error_is_shown(store_name):
     rows = StoreFinderPage().stores_list.rows
     assert rows[0].split('\n')[0] == store_name, f"Store name is not {store_name}."
+
+
+@when("Close notification")
+def close_notification():
+    BasePage().cookie_close_button.click()
+
+@when("Refresh browser")
+def refresh_browser(browser):
+    browser.refresh()

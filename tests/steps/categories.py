@@ -58,3 +58,15 @@ def one_item_in_produt_grid():
 @then("Applied Facets is Female")
 def applied_fasets_is_female():
     assert CategoriesPage().selected_options.list[0].text == 'Female '
+
+@then("First price selected")
+def first_price_selected():
+    assert (CategoriesPage().price.list[0]).is_marked()
+
+@then("First colour selected")
+def first_colour_selected():
+    assert (CategoriesPage().colour.list[0]).is_marked()
+
+@then("First size selected")
+def first_size_selected():
+    assert (CategoriesPage().size.list[0]).is_marked()

@@ -9,3 +9,10 @@ from tests.steps.categories import *
 )
 def test_select_categories(browser):
     pass
+
+@scenario(
+    "features/categories.feature",
+    "Categories after refresh",
+)
+def test_categories_after_refresh(browser):
+    pass
