@@ -1,3 +1,4 @@
+@register
 Feature: Registration
     Scenario Outline: User sign up
         Given User on main page

@@ -1,3 +1,4 @@
+@not_parallel
 Feature: Store Finder
     Scenario: Show all stores
         Given User on store finder page

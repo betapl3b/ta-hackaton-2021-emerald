@@ -16,7 +16,7 @@ def dict_merge(dct, merge_dct):
 
 def prepare_html(path):
     results = {}
-    for json_file in os.listdir(path):
+    for json_file in [file for file in os.listdir(path) if 'json' in file]:
         inner_dict = {}
         with open(f'{path}/{json_file}', 'r') as f:
             json_content = json.loads(f.read())
