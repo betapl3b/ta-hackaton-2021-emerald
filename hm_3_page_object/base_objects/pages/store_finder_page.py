@@ -5,10 +5,10 @@ from hm_3_page_object.base_objects.elements.base_element import BaseElement
 from hm_3_page_object.base_objects.elements.clickable_element import ClickableElement
 from hm_3_page_object.base_objects.elements.input import Input
 from hm_3_page_object.base_objects.elements.list import List
+from hm_3_page_object.helpers.browser import Browser
 
 
 class StoreFinderPage(BasePage):
-
     # Error message
     error_message = BaseElement(
         by=By.CLASS_NAME,
@@ -50,6 +50,12 @@ class StoreFinderPage(BasePage):
         name='Top Next button',
     )
 
+    # browser = Browser()
+    # stores_list = browser.get_element(
+    #     selector_type=By.CLASS_NAME,
+    #     selector='store__finder--navigation-list.js-store-finder-navigation-list',
+    #     timeout=5,
+    # )
     stores_list = List(
         by=By.CLASS_NAME,
         value='store__finder--navigation-list.js-store-finder-navigation-list',
