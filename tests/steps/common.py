@@ -54,33 +54,33 @@ def click_logout():
 
 @when("'Find stores' button clicked")
 def click_find_stores_button():
+    sleep(1)
     StoreFinderPage().find_nearest_stores_button.click()
 
 
 @when("'Magnifier' button clicked")
 def click_magnifier_button():
+    sleep(1)
     StoreFinderPage().magnifier_button.click()
 
 
 @then("stores table is shown")
 def stores_table_is_shown():
-    sleep(3)
     assert StoreFinderPage().stores_list.is_displayed(), "Stores list isn't shown."
 
 
 @then("error is shown")
 def error_is_shown(error_text):
-    sleep(1)
     assert StoreFinderPage().error_message.text == error_text, f"Error message is not {error_text}."
 
 
 @when("search input filled with a value")
 def fill_input(store_name):
+    sleep(1)
     StoreFinderPage().query_input = store_name
 
 
 @then("particular store is shown")
 def error_is_shown(store_name):
-    sleep(1)
     rows = StoreFinderPage().stores_list.rows
     assert rows[0].split('\n')[0] == store_name, f"Store name is not {store_name}."
